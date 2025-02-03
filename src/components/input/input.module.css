@@ -1,0 +1,87 @@
+.inputContainer {
+  --cl-text: 255, 255, 255;
+  --cl-text-secondary: 255, 255, 255;
+  --cl-border: 244, 244, 244;
+  position: relative;
+  text-align: left;
+  /* padding-top: 28px; */
+}
+
+.inputContainer.error {
+  --cl-text: 235, 87, 87;
+  --cl-text-secondary: 235, 87, 87;
+  --cl-border: 235, 87, 87;
+}
+
+.input,
+.input::placeholder,
+.label {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #191b1d;
+  min-height: 52px;
+  color: rgb(var(--cl-text));
+}
+
+.input {
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(var(--cl-border));
+}
+
+.input:active,
+.input:focus-visible {
+  border: none;
+  border-bottom: 1px solid rgb(var(--cl-border));
+  outline: none;
+}
+
+.label {
+  cursor: pointer;
+  position: absolute;
+  /* top: 47%; */
+  top: 20%;
+  left: 15px;
+  z-index: 1;
+  /* transform: translate3d(0, 0, 0); */
+  transition: top 0.5s ease-in;
+}
+
+.input:focus-visible + .label,
+.input:not(:placeholder-shown) + .label,
+.label.top {
+  line-height: 24px;
+  font-size: 14px;
+  line-height: 24px;
+  top: -20%;
+  color: rgb(var(--cl-text-secondary));
+  /* transform: translate3d(0, -50%, 0); */
+}
+
+
+
+.input, .input::placeholder, .label {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    min-height: 52px;
+    color: rgb(var(--cl-text));
+}
+
+.input {
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(var(--cl-border));
+}
+
+.textarea {
+    overflow: hidden;
+}

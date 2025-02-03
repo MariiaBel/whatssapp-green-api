@@ -1,0 +1,29 @@
+.section {
+    max-width: 504px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 17px 32px 54px;
+}
+
+.hgroup {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.title {
+    font-size: 40px;
+    line-height: 68px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.btn {
+    align-self: center;
+    margin-top: 30px;
+}

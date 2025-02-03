@@ -1,0 +1,27 @@
+.btn {
+    padding: 15px 60px;
+    width: 100%;
+    max-width: 288px;
+    border-radius: 48px;
+    background-color: rgb(var(--cl-main-deep));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgba(var(--cl-main-deep), 60%);
+    outline: none;
+    border: none;
+}
+.btn:active, .btn:focus, .btn:focus-visible {
+    outline: none;
+    border: none;
+}

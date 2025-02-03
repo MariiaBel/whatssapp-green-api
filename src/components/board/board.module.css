@@ -1,0 +1,8 @@
+.section {
+    width: 100vw;
+    height: 100vh;
+    background: #eae8e8;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+}

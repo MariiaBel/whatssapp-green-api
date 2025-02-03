@@ -1,0 +1,45 @@
+:root {
+  --cl-main: 18, 140, 126;
+  --cl-main-deep: 7, 94, 84;
+}
+
+html, body {
+  width: 100%;
+  min-width: 360px;
+}
+
+body {
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  margin: 0;
+}
+
+p, h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+}
+
+
+input {
+  font-family: "Manrope", serif;
+  font-weight: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.page {
+  max-width: 1240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0 20px;  
+  background-color: rgb(var(--cl-main));
+}

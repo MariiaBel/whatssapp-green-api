@@ -1,0 +1,14 @@
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(var(--cl-main));
+}
+
+
+.textarea {
+    background: white;
+    border-radius: 30px;
+    --cl-text: var(--cl-main);
+    --cl-text-secondary: white;
+    --cl-border: transparent;
+}
