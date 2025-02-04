@@ -3,7 +3,7 @@ const mockData = {
     apiUrl: "https://1103.api.green-api.com",
 }
 
-export async function sendMessage({idInstance, apiTokenInstance, phone, message}) {
+export async function sendMessage({ idInstance, apiTokenInstance, phone, message }) {
     try {
         // const response = await restAPI.message.sendMessage(`${phone}@c.us`, null, message);
         const response = await fetch(`${mockData.apiUrl}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`, {
@@ -15,14 +15,14 @@ export async function sendMessage({idInstance, apiTokenInstance, phone, message}
                 "chatId": `${phone}@c.us`,
                 "message": message
             })
-          });
+        });
         return response.json()
     } catch (ex) {
         console.error(ex);
     }
 }
 
-export async function receiveNotification({idInstance, apiTokenInstance}) {
+export async function receiveNotification({ idInstance, apiTokenInstance }) {
     try {
         const response = await fetch(`${mockData.apiUrl}/waInstance${idInstance}/receiveNotification/${apiTokenInstance}`);
         // ?receiveTimeout=5
@@ -32,7 +32,7 @@ export async function receiveNotification({idInstance, apiTokenInstance}) {
     }
 }
 
-export async function deleteNotification({idInstance, apiTokenInstance, receiptId}) {
+export async function deleteNotification({ idInstance, apiTokenInstance, receiptId }) {
     try {
         const response = await fetch(`${mockData.apiUrl}/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${receiptId}`, {
             method: "DELETE",
