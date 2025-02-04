@@ -4,7 +4,7 @@ import BoardFooter from "./board-footer";
 import BoardMessage from "./board-message";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchGetMessage } from "../../store/message/slice";
+import { fetchGetMessage } from "../../store/message/thunks";
 type TBoardProps = {
     className?: string;
 };

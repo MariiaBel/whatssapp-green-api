@@ -1,8 +1,8 @@
 import styles from "./board-footer.module.css";
 import { useCallback, FormEvent } from "react";
 import { useDispatch } from "react-redux";
-import { fetchSendMessage } from "../../store/message/slice";
 import Textarea from "../input/textarea";
+import { fetchSendMessage } from "../../store/message/thunks";
 
 export default function BoardFooter() {
     const dispatch = useDispatch();
