@@ -3,7 +3,7 @@ The project was created by [MariiaBel](https://smartcall-mariiabel.vercel.app/).
 Contact: [@MariiaBel](https://t.me/MariiaBel)
 
 
-For sending ans receiving messages you need to:
+For sending and receiving messages you need to:
 
 * have an account in [GREEN-API](https://green-api.com/) 
 * get idInstance and apiTokenInstance for connection 
