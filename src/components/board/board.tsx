@@ -3,14 +3,14 @@ import BoardHeader from "./board-header";
 import BoardFooter from "./board-footer";
 import BoardMessage from "./board-message";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { fetchGetMessage } from "../../store/message/thunks";
+import { useAppDispatch } from "../../hooks/store";
 type TBoardProps = {
     className?: string;
 };
 
 export default function Board({ className }: TBoardProps) {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         const getMessages = async () => {

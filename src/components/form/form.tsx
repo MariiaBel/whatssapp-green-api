@@ -4,8 +4,8 @@ import { FormEvent, useCallback } from "react";
 import styles from "./form.module.css";
 import { useState } from "react";
 import Input from "../input/input";
-import { useDispatch } from "react-redux";
 import { setUserData } from "../../store/message/slice";
+import { useAppDispatch } from "../../hooks/store";
 
 const inputsRequired = ["idInstance", "apiTokenInstance", "phone"];
 
@@ -20,7 +20,7 @@ type TInput = {
     type: string;
 };
 export default function Form({ className }: TFormProps) {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [inputsErrorState, setInputsErrorState] = useState({
         idInstance: false,
@@ -57,9 +57,10 @@ export default function Form({ className }: TFormProps) {
         if (success) {
             dispatch(
                 setUserData({
-                    idInstance: formData.get("idInstance"),
-                    apiTokenInstance: formData.get("apiTokenInstance"),
-                    phone: formData.get("phone"),
+                    idInstance: (formData.get("idInstance") || "") as string,
+                    apiTokenInstance: (formData.get("apiTokenInstance") ||
+                        "") as string,
+                    phone: (formData.get("phone") || "") as string,
                 })
             );
         }

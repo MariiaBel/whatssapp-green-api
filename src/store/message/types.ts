@@ -1,9 +1,5 @@
 export type TInitialState = {
-    userData: {
-        idInstance: string,
-        apiTokenInstance: string,
-        phone: string
-    },
+    userData: TUserData,
     messages: TInitialStateMessage[]
 }
 
@@ -13,6 +9,12 @@ export type TInitialStateMessage = {
     idMessage: string
 }
 
-export type TStatusMessage = {
-    status: 'next' | 'end'
+export type TUserData = {
+    idInstance: string,
+    apiTokenInstance: string,
+    phone: string
 }
+
+// export type TStatusMessage = {
+//     status: 'next' | 'end'
+// }

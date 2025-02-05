@@ -1,10 +1,11 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAppAsyncThunk } from '../../hooks/store';
 import { deleteNotification, receiveNotification, sendMessage } from './api';
-import { TInitialStateMessage, TStatusMessage } from './types';
+import { TInitialStateMessage } from './types';
 
 
-export const fetchSendMessage = createAsyncThunk<TInitialStateMessage | null, string>('message/fetchMessage', async (message, { getState }) => {
+export const fetchSendMessage = createAppAsyncThunk<TInitialStateMessage | null, string>('message/fetchMessage', async (message, { getState }) => {
     const { userData } = getState().message
 
     const result = await sendMessage({
@@ -23,7 +24,7 @@ export const fetchSendMessage = createAsyncThunk<TInitialStateMessage | null, st
 })
 
 
-export const fetchGetMessage = createAsyncThunk<TInitialStateMessage | TStatusMessage, void>('message/fetchGetMessage', async (_, { getState, dispatch }) => {
+export const fetchGetMessage = createAppAsyncThunk<TInitialStateMessage | null, void>('message/fetchGetMessage', async (_, { getState }) => {
     const { userData } = getState().message
 
     const dataNotification = await receiveNotification({ ...userData })
@@ -32,7 +33,6 @@ export const fetchGetMessage = createAsyncThunk<TInitialStateMessage | TStatusMe
     if (dataNotification.receiptId) await deleteNotification({ ...userData, receiptId: dataNotification.receiptId })
 
     if (dataNotification.body?.idMessage) {
-        // if(dataNotification.body && dataNotification.body.messageData) {
         return {
             idMessage: dataNotification.body.idMessage,
             type: 'response',

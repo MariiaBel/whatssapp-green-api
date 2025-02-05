@@ -1,5 +1,5 @@
-import { TInitialState } from "./types"
+import { RootState } from "../store"
 
-export const userData = (state: any) => (state.message as TInitialState).userData
+export const userData = (state: RootState) => state.message.userData
 
-export const messages = (state: any) => (state.message as TInitialState).messages
+export const messages = (state: RootState) => state.message.messages

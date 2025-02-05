@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchGetMessage, fetchSendMessage } from './thunks';
-import { TInitialState } from './types';
+import { TInitialState, TInitialStateMessage, TUserData } from './types';
 
 const initialState: TInitialState = {
     userData: {
@@ -17,13 +17,13 @@ const messageSlice = createSlice({
     name: 'message',
     initialState: initialState,
     reducers: {
-        setUserData: (state, action) => {
+        setUserData: (state, action: PayloadAction<TUserData>) => {
             state.userData = {
                 ...state.userData,
                 ...action.payload
             }
         },
-        setMessage: (state, action) => {
+        setMessage: (state, action: PayloadAction<TInitialStateMessage>) => {
             state.messages = [
                 ...state.messages,
                 action.payload

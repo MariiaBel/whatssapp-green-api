@@ -1,11 +1,11 @@
 import styles from "./board-footer.module.css";
 import { useCallback, FormEvent } from "react";
-import { useDispatch } from "react-redux";
 import Textarea from "../input/textarea";
 import { fetchSendMessage } from "../../store/message/thunks";
+import { useAppDispatch } from "../../hooks/store";
 
 export default function BoardFooter() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const handleEnterPress = useCallback((event: KeyboardEvent) => {
         if (event.keyCode == 13 && event.shiftKey == false) {
@@ -17,11 +17,9 @@ export default function BoardFooter() {
     const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // if(!event?.target) return
-
         const formData = new FormData(event.target as HTMLFormElement);
 
-        const message = formData.get("sendingMessage");
+        const message = (formData.get("sendingMessage") || "") as string;
         if (!message?.length) return;
 
         dispatch(fetchSendMessage(message));
