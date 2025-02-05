@@ -24,7 +24,7 @@ export const fetchSendMessage = createAppAsyncThunk<TInitialStateMessage | null,
 })
 
 
-export const fetchGetMessage = createAppAsyncThunk<TInitialStateMessage | null, void>('message/fetchGetMessage', async (_, { getState }) => {
+export const fetchGetMessage = createAppAsyncThunk('message/fetchGetMessage', async (_, { getState }) => {
     const { userData } = getState().message
 
     const dataNotification = await receiveNotification({ ...userData })
