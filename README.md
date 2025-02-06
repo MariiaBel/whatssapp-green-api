@@ -1,15 +1,16 @@
 # WhatsApp with GREEN-API
-The project was created by [MariiaBel](https://smartcall-mariiabel.vercel.app/). <br />
-Contact: [@MariiaBel](https://t.me/MariiaBel)
 
+The project was created by [MariiaBel](https://smartcall-mariiabel.vercel.app/). <br />
+Contact: [@MariiaBel](https://t.me/MariiaBel) <br />
+Demo: [githubPage]()
 
 For sending and receiving messages you need to:
 
-* have an account in [GREEN-API](https://green-api.com/) 
-* get idInstance and apiTokenInstance for connection 
-* know recipient's phone number
+-   have an account in [GREEN-API](https://green-api.com/)
+-   get idInstance and apiTokenInstance for connection
+-   know recipient's phone number
 
-```js 
+```js
 idInstance: "1234567",
 apiTokenInstance: "abcd1234,
 phone: "123456789"
@@ -43,5 +44,10 @@ npm run preview
 
 ```
 
+## Production build:
 
+```bash
+# npm
+npm run build
 
+```
