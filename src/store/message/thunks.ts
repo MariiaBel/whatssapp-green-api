@@ -30,7 +30,6 @@ export const fetchGetMessage = createAppAsyncThunk('message/fetchGetMessage', as
 
     if (dataNotification.receiptId) await deleteNotification({ ...userData, receiptId: dataNotification.receiptId })
 
-    console.log(dataNotification.body)
     if (dataNotification.body?.typeWebhook === "outgoingMessageReceived" &&
         dataNotification.body.senderData.chatId === `${userData.phone}@c.us`) {
         return {
