@@ -1,29 +1,35 @@
-import { useState } from "react";
+import { FocusEventHandler, KeyboardEventHandler, useState } from "react";
 import styles from "./input.module.css";
 import { useCallback } from "react";
 
 type TTextareaProps = {
     className?: string;
+    onKeyDown: KeyboardEventHandler<HTMLTextAreaElement>;
     // id: string,
     // label: string,
     name: string;
 };
 
-export default function Textarea({ className, ...options }: TTextareaProps) {
+export default function Textarea({
+    className,
+    onKeyDown,
+    ...options
+}: TTextareaProps) {
     const [RowsState, setRowsState] = useState(1);
 
     const handleTextareaFocus = useCallback(() => {
         setRowsState(2);
     }, [RowsState]);
 
-    const handleTextareaBlur = useCallback(
-        (event: React.FocusEventHandler<HTMLTextAreaElement>) => {
-            if (!event.target?.value) {
-                setRowsState(1);
-            }
-        },
-        [RowsState]
-    );
+    const handleTextareaBlur: FocusEventHandler<HTMLTextAreaElement> =
+        useCallback(
+            (event) => {
+                if (!event.target.value) {
+                    setRowsState(1);
+                }
+            },
+            [RowsState]
+        );
 
     return (
         <div className={[className, styles.inputContainer].join(" ")}>
@@ -34,6 +40,7 @@ export default function Textarea({ className, ...options }: TTextareaProps) {
                 {...options}
                 onFocus={handleTextareaFocus}
                 onBlur={handleTextareaBlur}
+                onKeyDown={onKeyDown}
             ></textarea>
             {/* <label className={styles.label} htmlFor={options.id}>{label}</label> */}
         </div>

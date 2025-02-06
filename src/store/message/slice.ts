@@ -41,7 +41,8 @@ const messageSlice = createSlice({
             }
         }),
             builder.addCase(fetchGetMessage.fulfilled, (state, action) => {
-                if (!!action.payload && action.payload.value) {
+                console.log(action.payload)
+                if (!!action.payload) {
                     state.messages = [
                         ...state.messages,
                         action.payload

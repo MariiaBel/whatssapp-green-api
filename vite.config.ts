@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['@green-api/whatsapp-api-client'],
-    base: './'
-  }
+  },
+  base: './'
 })

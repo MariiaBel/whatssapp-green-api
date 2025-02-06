@@ -1,5 +1,3 @@
-
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createAppAsyncThunk } from '../../hooks/store';
 import { deleteNotification, receiveNotification, sendMessage } from './api';
 import { TInitialStateMessage } from './types';
@@ -32,12 +30,14 @@ export const fetchGetMessage = createAppAsyncThunk('message/fetchGetMessage', as
 
     if (dataNotification.receiptId) await deleteNotification({ ...userData, receiptId: dataNotification.receiptId })
 
-    if (dataNotification.body?.idMessage) {
+    console.log(dataNotification.body)
+    if (dataNotification.body?.typeWebhook === "outgoingMessageReceived" &&
+        dataNotification.body.senderData.chatId === `${userData.phone}@c.us`) {
         return {
             idMessage: dataNotification.body.idMessage,
             type: 'response',
-            value: dataNotification.body.messageData?.extendedTextMessageData?.text || ""
-        }
+            value: dataNotification.body.messageData?.extendedTextMessageData?.text
+        } as TInitialStateMessage
     }
 
 })

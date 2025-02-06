@@ -14,12 +14,11 @@ export default function Board({ className }: TBoardProps) {
 
     useEffect(() => {
         const getMessages = async () => {
-            let message;
-            while ((message = await dispatch(fetchGetMessage()).unwrap())) {}
+            while (await dispatch(fetchGetMessage()).unwrap()) {}
         };
         const timeoutId = setInterval(() => {
             getMessages();
-        }, 10000);
+        }, 5000);
 
         return () => {
             clearInterval(timeoutId);
